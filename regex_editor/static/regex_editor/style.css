@@ -1,0 +1,64 @@
+body {
+  background: url("images/regex_background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: sans-serif;
+  background-attachment: fixed;
+  padding: 1rem;
+  color: white;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+a {
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  font-size: 10px;
+  margin-top: 35px;
+}
+
+.content {
+  margin-top: 30px;
+}
+
+.myradio, .myselect {
+  margin-right: 20px;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url("images/Preloader_2.gif") center no-repeat #fff;
+}
+
+#appname {
+  font-size: 45px;
+  text-align: center;
+  font-family: Arial;
+}
+
+#result {
+  color: white;
+  border: 1px solid #0ea303;
+  padding: 3px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 30px;
+}

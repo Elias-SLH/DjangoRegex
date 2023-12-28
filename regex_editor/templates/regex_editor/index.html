@@ -1,0 +1,63 @@
+{% extends './base.html' %}
+
+{% block header%}
+
+  <h4>{% block title %}Regex editor{% endblock%}</h4>
+
+{% endblock%}
+
+
+{% block content %}
+
+  <form method="POST" action="">
+    {% csrf_token %}
+      {% for radio in form.regex_type %}
+        <div class="myradio">
+          {{ radio }}
+        </div>
+      {% endfor %}
+      <br>
+      {% for select in form.regex_flag %}
+        <div class="myselect">
+          {{ select }}
+        </div>
+      {% endfor %}
+      {{ form.regex }}<br>
+      {{ form.substitution }}
+      {{ form.test_string }}<br>
+      {% if not result %}
+      {% else %}
+        {% if match_count > 0 %}
+          <p>Match's number: {{ match_count }}</p>
+          <table><tr>
+            {% for res in result %}
+              <td id='result'>{{ res }}</td>
+            {% endfor %}
+          </tr></table>
+        {% else %}
+          <p>Match's number: {{ match_count }}</p>
+          <p id='result'>{{ result }}</p><br>
+        {% endif %}
+      {% endif %}
+    <input class="btn btn-outline-success" type="submit" value="Launch">
+  </form>
+
+<script>
+  document.getElementById('test_string').addEventListener('keydown', function(e) {
+  if (e.key == 'Tab') {
+    e.preventDefault();
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+
+    // put caret at right position again
+    this.selectionStart =
+      this.selectionEnd = start + 1;
+  }
+});
+</script>
+
+{% endblock %}
